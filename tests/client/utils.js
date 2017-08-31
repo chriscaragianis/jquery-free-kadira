@@ -5,7 +5,8 @@ Tinytest.addAsync(
     var SettingsCollection = new Meteor.Collection('kadira_settings');
     SettingsCollection.find().observe({added: _.once(function (options) {
       test.equal(!!options.appId, true);
-      test.equal(!!options.endpoint, true);
+      test.equal(!!options.clientEndpoint, true);
+      test.equal(!!options.serverEndpoint, true);
       test.equal(!!options.clientEngineSyncDelay, true);
       done();
     })});
